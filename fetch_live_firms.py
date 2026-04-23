@@ -1,1 +1,2 @@
-import requests; print('Fetch NASA FIRMS CSV/API here')
+import pandas as pd
+print('Use NASA FIRMS CSV/API here. Example module ready.')

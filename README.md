@@ -1,13 +1,14 @@
-# Forest Fire Project
+# Forest Fire Detection Full Project
 
-Includes:
-- train_classifier.py
-- predict.py
-- fetch_live_firms.py
-- main.py
-- requirements.txt
+1. Install requirements:
+pip install -r requirements.txt
 
-Place dataset in dataset/Data/Train and dataset/Data/Test
-Run:
+2. Put dataset:
+dataset/Data/Train
+dataset/Data/Test
+
+3. Train:
 python train_classifier.py
+
+4. Run dashboard:
 streamlit run main.py
