@@ -1,0 +1,1 @@
+import requests; print('Fetch NASA FIRMS CSV/API here')
