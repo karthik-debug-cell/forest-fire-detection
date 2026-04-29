@@ -1,4 +1,5 @@
 # Forest Fire Detection Full Project
+#Detects the forest fire with images perceived from satellite live data 
 
 1. Install requirements:
 pip install -r requirements.txt
