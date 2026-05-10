@@ -6,7 +6,6 @@ from model_utils import load_model, predict_image
 st.set_page_config(layout="wide")
 st.title("🔥 Forest Fire Detection (Satellite + AI)")
 
-# ---------------- METRICS ----------------
 try:
     with open("metrics.txt", "r") as f:
         acc, prec, rec = map(float, f.read().split(","))
@@ -16,10 +15,11 @@ try:
     c1.metric("Accuracy", f"{acc*100:.2f}%")
     c2.metric("Precision", f"{prec*100:.2f}%")
     c3.metric("Recall", f"{rec*100:.2f}%")
+
 except:
     st.warning("⚠ Train model to see metrics")
 
-# ---------------- SATELLITE MAP (FAST) ----------------
+
 st.header("🌍 Live Fire Map")
 
 data = get_fire_data()
@@ -30,21 +30,21 @@ if data is not None:
     # Fast map
     st.map(data[['latitude', 'longitude']])
 
-    # Simple table
-    st.subheader("Top Fire Points")
+    # Table
+    st.subheader("Top Fire Locations")
     st.dataframe(data[['latitude', 'longitude', 'confidence']].head(20))
 
 else:
     st.error("⚠ API issue")
 
-# ---------------- MODEL ----------------
+
 model = None
 try:
     model = load_model()
 except:
     st.warning("⚠ Model not loaded")
 
-# ---------------- PREDICTION ----------------
+
 st.header("🧠 Image Detection")
 
 uploaded = st.file_uploader("Upload Image", type=["jpg","png","jpeg"])
