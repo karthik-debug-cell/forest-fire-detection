@@ -1,5 +1,5 @@
 dataset/
 *.pth
-metrics.txt
+*.pptx
 __pycache__/
 .env

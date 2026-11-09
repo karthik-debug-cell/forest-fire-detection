@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: forest-fire-detection
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: standard
+    region: oregon
+    envVars:
+      - key: PORT
+        value: 8501
+      - key: NASA_FIRMS_API_KEY
+        value: f3fac5e638c9d20758c3ffb1b43c8e8b
+

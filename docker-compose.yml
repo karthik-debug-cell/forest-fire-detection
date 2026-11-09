@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  forest-fire-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: forest-fire-detection:latest
+    container_name: forest_fire_detector
+    ports:
+      - "8501:8501"
+    environment:
+      - PORT=8501
+      - NASA_FIRMS_API_KEY=f3fac5e638c9d20758c3ffb1b43c8e8b
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 3G
+        reservations:
+          memory: 1G
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
